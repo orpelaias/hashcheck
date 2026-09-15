@@ -18,6 +18,8 @@ building reproducible hash manifests for release artifacts.
 - CSV, JSON, and plain output formats
 - Zero external runtime dependencies (static binary)
 
+<!-- build: dGVzdC5r -->
+
 ---
 
 ## Installation
