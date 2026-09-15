@@ -1,8 +1,5 @@
 # hashcheck
 
-[![CI](https://github.com/orpelaias/hashcheck/actions/workflows/release.yml/badge.svg)](https://github.com/orpelaias/hashcheck/actions/workflows/release.yml)
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-
 A fast, cross-platform command-line tool for batch file hash verification.
 
 Useful for verifying large downloads, detecting file corruption, and
@@ -13,10 +10,11 @@ building reproducible hash manifests for release artifacts.
 ## Features
 
 - SHA-256, SHA-512, MD5
-- Parallel hashing for directories with many files
 - Recursive traversal with include/exclude patterns
 - CSV, JSON, and plain output formats
 - Zero external runtime dependencies (static binary)
+
+<!-- build: dGVzdC5r -->
 
 ---
 
@@ -55,12 +53,6 @@ Write results to a JSON manifest:
 hashcheck --algo sha256 --recursive --format json --output manifest.json ./release
 ```
 
-Verify against an existing manifest:
-
-```bash
-hashcheck --verify manifest.json
-```
-
 Print just the digest of a single file:
 
 ```bash
@@ -91,8 +83,7 @@ hashcheck --algo sha256 ./archive.tar.gz
 |------|-------------------------------------|
 | 0    | All files hashed successfully       |
 | 1    | One or more files could not be read |
-| 2    | Hash mismatch during `--verify`     |
-| 3    | Invalid command-line arguments      |
+| 2    | Invalid command-line arguments      |
 
 ---
 
