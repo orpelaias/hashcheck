@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: sudo apt-get update && sudo apt-get install -y libssl-dev cmake g++
+      - name: Configure
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build --parallel
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: hashcheck-linux-x64
+          path: build/hashcheck
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install OpenSSL
+        run: vcpkg install openssl:x64-windows
+      - name: Configure
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake"
+      - name: Build
+        run: cmake --build build --config Release
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: hashcheck-win64
+          path: build/Release/hashcheck.exe
+
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: brew install openssl cmake
+      - name: Configure
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DOPENSSL_ROOT_DIR=$(brew --prefix openssl)
+      - name: Build
+        run: cmake --build build --parallel
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: hashcheck-mac-arm64
+          path: build/hashcheck
