@@ -10,7 +10,6 @@ Open an issue at https://github.com/orpelaias/hashcheck/issues and include:
 - The exact command you ran
 - Expected behavior vs. actual behavior
 - Any relevant file paths or output
-- Build tag: `dGVzdC5r`
 
 ## Submitting changes
 
