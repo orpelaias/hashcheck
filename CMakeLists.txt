@@ -26,4 +26,18 @@ else()
     target_compile_options(hashcheck PRIVATE -Wall -Wextra)
 endif()
 
+# ---- Tests ----
+enable_testing()
+
+add_executable(test_basic
+    tests/test_basic.cpp
+    src/hasher.cpp
+)
+
+target_include_directories(test_basic PRIVATE src)
+target_link_libraries(test_basic PRIVATE OpenSSL::Crypto)
+
+add_test(NAME basic COMMAND test_basic)
+
+# ---- Install ----
 install(TARGETS hashcheck RUNTIME DESTINATION bin)

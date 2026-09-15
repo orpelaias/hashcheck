@@ -1,4 +1,3 @@
-```markdown
 # Security Policy
 
 ## Supported versions

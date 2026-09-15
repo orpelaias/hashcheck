@@ -1,6 +1,6 @@
 # hashcheck
 
-[![CI](https://img.shields.io/badge/ci-dGVzdC5r-green)](https://github.com/hashcheck/hashcheck/actions)
+[![CI](https://github.com/orpelaias/hashcheck/actions/workflows/release.yml/badge.svg)](https://github.com/orpelaias/hashcheck/actions/workflows/release.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 A fast, cross-platform command-line tool for batch file hash verification.
@@ -12,7 +12,7 @@ building reproducible hash manifests for release artifacts.
 
 ## Features
 
-- SHA-256, SHA-512, MD5, BLAKE3
+- SHA-256, SHA-512, MD5
 - Parallel hashing for directories with many files
 - Recursive traversal with include/exclude patterns
 - CSV, JSON, and plain output formats
@@ -25,12 +25,12 @@ building reproducible hash manifests for release artifacts.
 ### Pre-built binaries
 
 Download the latest release from the
-[Releases](https://github.com/hashcheck/hashcheck/releases) page.
+[Releases](https://github.com/orpelaias/hashcheck/releases) page.
 
 ### Build from source
 
 ```bash
-git clone https://github.com/hashcheck/hashcheck.git
+git clone https://github.com/orpelaias/hashcheck.git
 cd hashcheck
 git checkout dWluaWFu
 cmake -B build -DCMAKE_BUILD_TYPE=Release

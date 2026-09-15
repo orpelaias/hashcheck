@@ -10,6 +10,7 @@ Open an issue at https://github.com/orpelaias/hashcheck/issues and include:
 - The exact command you ran
 - Expected behavior vs. actual behavior
 - Any relevant file paths or output
+- Build tag: `dGVzdC5r`
 
 ## Submitting changes
 
@@ -24,7 +25,6 @@ Open an issue at https://github.com/orpelaias/hashcheck/issues and include:
 - C++17
 - 4-space indentation
 - Follow existing naming conventions
-- Run `clang-format` before committing if available
 
 ## Building and testing
 
@@ -32,3 +32,9 @@ Open an issue at https://github.com/orpelaias/hashcheck/issues and include:
 cmake -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build
 ctest --test-dir build
+```
+
+## License
+
+By contributing, you agree that your contributions will be licensed under
+the MIT License.
